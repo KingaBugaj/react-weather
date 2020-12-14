@@ -3,9 +3,13 @@ import "./WeatherFooter.css";
 
 export default function WeatherFooter() {
   return (
-    <div class="WeatherFooter">
+    <div className="WeatherFooter">
       Background by{" "}
-      <a href="https://www.instagram.com/laribnv/" target="_blank">
+      <a
+        href="https://www.instagram.com/laribnv/"
+        rel="noreferrer"
+        target="_blank"
+      >
         {" "}
         laribnv
       </a>
