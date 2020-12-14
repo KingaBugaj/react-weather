@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+import WeatherFooter from "./WeatherFooter";
 import "./Weather.css";
 import axios from "axios";
+import background from "./background.png";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       cityName: response.data.name,
@@ -38,21 +39,50 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            placeholder="Enter a city"
-            className="form"
-            onChange={handleCityChange}
-          />
+        <div
+          style={{
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundColor: "rgba(255,0,0,0.5)",
+          }}
+        >
+          <form onSubmit={handleSubmit}>
+            <input
+              className="enterCity"
+              type="search"
+              placeholder="Enter a city"
+              onChange={handleCityChange}
+            />
 
-          <input type="submit" value="Search" className="button-search" />
-        </form>
-        <WeatherInfo data={weatherData} />
+            <input
+              type="submit"
+              value="Search"
+              className="button-search searchCity"
+            />
+          </form>
+
+          <WeatherInfo data={weatherData} />
+
+          <WeatherForecast city={weatherData.cityName} />
+          <WeatherFooter />
+        </div>
       </div>
     );
   } else {
     search();
-    return "Loading";
+    return (
+      <div
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        Loading...
+      </div>
+    );
   }
 }

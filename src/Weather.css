@@ -1,17 +1,33 @@
 .Weather {
-  background-color: bisque;
-  background-image: url("https://media.npr.org/assets/img/2018/08/13/gettyimages-736054223_wide-2e29b3ffc4a896a2bea091e0aada1f250c9f9aec.jpg?s=1400");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border: 1px solid black;
+  border: 0.5px solid black;
+  border-radius: 15px;
   max-width: 500px;
   margin: 0 auto;
 }
+
 li {
   list-style: none;
 }
-img {
-  max-height: 40px;
-  max-width: 40px;
+form {
+  max-width: 50px;
+  margin: 5px;
+}
+
+.WeatherInfos {
+  text-align: left;
+  margin-left: 10px;
+}
+.enterCity {
+  border-radius: 6px;
+  margin: 1px 1px 0 0;
+  align-items: flex-end;
+  max-height: 20px;
+}
+.searchCity {
+  border-radius: 6px;
+  margin: 1px;
+  text-align: right;
+  max-height: 20px;
+  line-height: 12px;
+  padding: 2px;
 }
